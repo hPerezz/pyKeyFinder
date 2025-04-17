@@ -1,4 +1,4 @@
-# Audio Key Detection Script
+# Python Key Finder
 
 ## Description
 
