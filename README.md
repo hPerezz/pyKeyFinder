@@ -68,3 +68,5 @@ The script uses the Krumhansl-Schmuckler key profiles, derived from psychoacoust
 * The accuracy depends on the quality and characteristics of the audio recording (e.g., mix clarity, instrumentation).
 * Music with ambiguous tonality, frequent key changes within the analyzed segment, or highly chromatic/atonal passages might result in less accurate estimations.
 * The script analyzes the *entire* audio file (or segment loaded) to produce a *single* key estimate. It doesn't track key changes within the file.
+
+Maid with ❤️ in UNIFEI - Federal de Itajubá :)
