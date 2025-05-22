@@ -11,6 +11,8 @@ This Python script analyzes an audio file to estimate its musical key. It distin
 * Uses Chroma features (`librosa.feature.chroma_stft`) for pitch class analysis.
 * Employs Krumhansl-Schmuckler key profiles for robust key estimation.
 * Calculates correlation between audio features and key profiles to find the best match.
+* Detects the BPM (tempo) of the audio file using `librosa.beat.beat_track`.
+* Maps detected keys to Camelot Wheel notation for DJ-friendly key representation.
 
 ## Requirements
 
@@ -39,13 +41,11 @@ This Python script analyzes an audio file to estimate its musical key. It distin
     ```bash
     python key_detector.py
     ```
-4.  **Output:** The script will print the estimated key to the console, for example:
+4.  **Output:** The script will print the estimated key, Camelot key, and BPM to the console, for example:
     ```
-    Detected Key: A minor
-    ```
-    or
-    ```
-    Detected Key: G Major
+    Detected Standard Key: A minor
+    Detected Camelot Key:  8A
+    Detected BPM:           128.00
     ```
     It will also print warnings or errors if the file is not found or if issues occur during processing (like analyzing a silent file).
 
@@ -57,7 +57,7 @@ This Python script analyzes an audio file to estimate its musical key. It distin
 4.  **Normalize:** Both the audio's average chroma vector and the pre-defined Krumhansl-Schmuckler key profiles (one for major, one for minor, transposed to all 12 roots) are normalized.
 5.  **Correlate:** The script calculates the dot product (correlation) between the normalized audio chroma vector and each of the 24 normalized key profiles.
 6.  **Identify Best Match:** The key profile with the highest correlation score is considered the best match.
-7.  **Output Key:** The name of the key corresponding to the best-matching profile is printed.
+7.  **Output Key:** The name of the key corresponding to the best-matching profile is printed, along with its Camelot Wheel notation and the detected BPM.
 
 ## Key Profiles
 

@@ -45,6 +45,14 @@ camelot_map = {
 try:
     y, sr = librosa.load(audio_file_path)
 
+    # --- BPM (Tempo) Detection ---
+    try:
+        tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
+        print(f"Detected BPM:           {tempo:.2f}")
+    except Exception as bpm_e:
+        print(f"BPM detection error:    {bpm_e}")
+    # --- End BPM Detection ---
+
     # Check if audio is long enough
     if len(y) < 2048: # Needs at least one frame for STFT with default settings
         print(f"Warning: Audio file '{audio_file_path}' is too short for analysis.")
