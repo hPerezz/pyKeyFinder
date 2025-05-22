@@ -20,13 +20,12 @@ A Python package that analyzes audio files to estimate their musical key. It dis
 
 ```
 pyKeyFinder/
-├── src/
-│   ├── analysis/      # Audio analysis modules
-│   ├── profiles/      # Key profile definitions
-│   ├── utils/         # Utility functions
-│   └── main.py        # Main entry point
-├── setup.py           # Package installation configuration
-└── README.md          # This file
+├── analysis/      # Audio analysis modules
+├── profiles/      # Key profile definitions
+├── utils/         # Utility functions
+├── main.py        # Main entry point
+├── __init__.py    # Package initialization
+└── README.md      # This file
 ```
 
 ## Requirements
@@ -54,7 +53,7 @@ pyKeyFinder/
 
 1. **Run the script:**
    ```bash
-   python -m src.main
+   python main.py
    ```
 
 2. **Enter the audio file path when prompted:**
