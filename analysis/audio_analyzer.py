@@ -1,13 +1,13 @@
 import librosa
 import numpy as np
-from ..profiles.key_profiles import generate_all_profiles
-from ..utils.camelot_mapping import get_camelot_key
+from profiles.key_profiles import generate_all_profiles
+from utils.camelot_mapping import get_camelot_key
 
 def detect_tempo(y, sr):
     """Detect the tempo (BPM) of an audio signal."""
     try:
         tempo, _ = librosa.beat.beat_track(y=y, sr=sr)
-        return tempo
+        return float(tempo)  # Convert to scalar float
     except Exception as e:
         raise Exception(f"BPM detection error: {e}")
 
