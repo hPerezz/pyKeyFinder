@@ -2,11 +2,11 @@
 
 ## Description
 
-A Python package that analyzes audio files to estimate their musical key. It distinguishes between all 12 major and 12 minor keys (24 possible keys in total). The package uses the Librosa library to extract Chroma features and compares the audio's overall pitch class distribution against standard Krumhansl-Schmuckler key profiles to determine the best match.
+A Python application that analyzes audio files to estimate their musical key. It distinguishes between all 12 major and 12 minor keys (24 possible keys in total). The package uses the Librosa library to extract Chroma features and compares the audio's overall pitch class distribution against standard Krumhansl-Schmuckler key profiles to determine the best match.
 
 ## Features
 
-* Detects the key of an audio file (WAV, MP3, etc. - formats supported by Librosa)
+* Detects the key of an audio file (MP3 format supported)
 * Identifies both major and minor keys (e.g., "C Major", "A minor")
 * Uses Chroma features (`librosa.feature.chroma_stft`) for pitch class analysis
 * Employs Krumhansl-Schmuckler key profiles for robust key estimation
@@ -15,25 +15,31 @@ A Python package that analyzes audio files to estimate their musical key. It dis
 * Maps detected keys to Camelot Wheel notation for DJ-friendly key representation
 * Provides correlation scores to indicate confidence in key detection
 * Interactive command-line interface for easy file analysis
+* Web interface for easy file upload and analysis
 
 ## Project Structure
 
 ```
 pyKeyFinder/
-├── src/
-│   ├── analysis/      # Audio analysis modules
-│   ├── profiles/      # Key profile definitions
-│   ├── utils/         # Utility functions
-│   └── main.py        # Main entry point
-├── setup.py           # Package installation configuration
-└── README.md          # This file
+├── analysis/          # Audio analysis modules
+├── profiles/          # Key profile definitions
+├── utils/            # Utility functions
+├── static/           # Static files for web interface
+├── templates/        # HTML templates
+├── uploads/          # Temporary file storage
+├── app.py            # Flask web application
+├── cli_audio_analysis.py  # Command-line interface
+├── requirements.txt  # Python dependencies
+└── README.md         # This file
 ```
 
 ## Requirements
 
 * Python 3.x
+* Flask
 * Librosa
 * NumPy
+* Werkzeug
 
 ## Installation
 
@@ -43,18 +49,34 @@ pyKeyFinder/
    cd pyKeyFinder
    ```
 
-2. **Install the package:**
+2. **Install the dependencies:**
    ```bash
-   pip install -e .
+   pip install -r requirements.txt
    ```
 
    *Note: Librosa might require `ffmpeg` for loading certain audio formats like MP3. If you encounter loading errors, ensure ffmpeg is installed and accessible in your system's PATH.*
 
 ## Usage
 
-1. **Run the script:**
+### Web Interface
+
+1. **Start the Flask server:**
    ```bash
-   python main.py
+   python app.py
+   ```
+
+2. **Open your web browser and navigate to:**
+   ```
+   http://localhost:5000
+   ```
+
+3. **Upload an MP3 file and view the results**
+
+### Command Line Interface
+
+1. **Run the CLI script:**
+   ```bash
+   python cli_audio_analysis.py
    ```
 
 2. **Enter the audio file path when prompted:**
