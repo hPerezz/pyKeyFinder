@@ -1,0 +1,19 @@
+/* Custom styles */
+#drop-zone {
+    transition: all 0.3s ease;
+}
+
+#drop-zone:hover {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* Loading animation */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+} 
